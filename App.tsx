@@ -9,6 +9,10 @@ const App = () => {
     console.log("number updated")
   },[number])
 
+  useEffect(() => {
+    console.log("mounting")
+  }, [])
+
   return(
     <SafeAreaView>
       <Text>Number {number}</Text>
@@ -17,4 +21,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App;
