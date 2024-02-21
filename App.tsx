@@ -1,24 +1,28 @@
 import React, {useState, useEffect} from "react";
-import {SafeAreaView, View, Text, Button} from "react-native"
+import {SafeAreaView, View, Text, Button, BackHandler} from "react-native"
 
 const App = () => {
-  const[number, setNumber] = useState(0)
+  const[helloFlag, setHelloFlag] = useState(true)
   //console.log("render")
 
-  useEffect(() => {
-    console.log("number updated")
-  },[number])
-
-  useEffect(() => {
-    console.log("mounting")
-  }, [])
+function updateFlag() {
+    setHelloFlag(!helloFlag)
+} 
 
   return(
     <SafeAreaView>
-      <Text>Number {number}</Text>
-      <Button title = "INCREASE" onPress={() => setNumber(number + 1)}></Button>
+      {helloFlag && <Hello/>}
+      <Button title = "Log in" onPress={updateFlag}></Button>
     </SafeAreaView>
   )
 }
 
 export default App;
+
+function Hello() {
+  return(
+    <View style = {{backgroundColor: "deepskyblue", padding: 10}}>
+      <Text style = {{color: "white", fontSize: 17, fontWeight: "bold"}}>Welcome</Text>
+    </View>
+  )
+}
