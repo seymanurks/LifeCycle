@@ -20,6 +20,14 @@ function updateFlag() {
 export default App;
 
 function Hello() {
+  useEffect(() => {
+    console.log("Oluşturuldu")
+
+    return () => {
+      console.log("Silindi")
+    }
+  }, []);
+  
   return(
     <View style = {{backgroundColor: "deepskyblue", padding: 10}}>
       <Text style = {{color: "white", fontSize: 17, fontWeight: "bold"}}>Welcome</Text>
